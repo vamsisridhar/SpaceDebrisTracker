@@ -24,7 +24,7 @@ app.get('/index.html', function (req, res) {
 app.get('/debrisData.json', function (req, res) {
   res.sendFile(__dirname + '/debrisData.json');
 });
-var server = app.listen(8000, function () {
+var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
   var port = server.address().port;
 });
