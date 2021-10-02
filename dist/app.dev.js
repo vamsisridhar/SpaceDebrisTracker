@@ -12,8 +12,11 @@ app.get('/', function (req, res) {
 app.get('/app.js', function (req, res) {
   res.sendFile(__dirname + '/app.js');
 });
-app.get('/data_retrieverB.js', function (req, res) {
+app.get('/data_retriever.js', function (req, res) {
   res.sendFile(__dirname + '/data_retriever.js');
+});
+app.get('/data_reader.js', function (req, res) {
+  res.sendFile(__dirname + '/data_reader.js');
 });
 app.get('/worldwind.js', function (req, res) {
   res.sendFile(__dirname + '/worldwind.js');
