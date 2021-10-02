@@ -1,0 +1,23 @@
+{
+  "name": "space-debris-tracker",
+  "version": "1.0.0",
+  "description": "Tracks space debris with real time information",
+  "main": "app.js",
+  "dependencies": {
+    "browserify-shim": "^3.8.14",
+    "express": "^4.17.1",
+    "http-server": "^13.0.2",
+    "satellite.js": "^4.1.3",
+    "spacetrack": "^2.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "heroku",
+    "space-debris"
+  ],
+  "author": "vamsikalyan-sridharbabu",
+  "license": "MIT"
+}
