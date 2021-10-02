@@ -20,5 +20,13 @@
     "space-debris"
   ],
   "author": "vamsikalyan-sridharbabu",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vamsisridhar/SpaceDebrisTracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vamsisridhar/SpaceDebrisTracker/issues"
+  },
+  "homepage": "https://github.com/vamsisridhar/SpaceDebrisTracker#readme"
 }
