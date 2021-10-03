@@ -213,6 +213,12 @@
         margin-bottom: 10px;
         color: #fff;
       }
+      .globe__text  {
+        color:#fff;
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 700;
+      }
       
       .globe__heading span {
         background: linear-gradient(113.5deg, rgb(234, 234, 234) 22.3%, rgb(201, 234, 211) 56.6%, rgb(255, 180, 189) 90.9%);
