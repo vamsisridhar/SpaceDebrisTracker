@@ -4,6 +4,8 @@ var spacetrack = require('spacetrack');
 
 var satellite = require('satellite.js');
 
+var projector = require('ecef-projector');
+
 var util = require('util');
 
 var fs = require('fs');
@@ -26,10 +28,11 @@ module.exports = {
       var element = json.table[i];
       var satrec = satellite.twoline2satrec(element.tle[1], element.tle[2]);
       var positionAndVelocity = satellite.propagate(satrec, date);
-      var gmst = satellite.gstime(date);
       var positionEci = positionAndVelocity.position,
-          velocityEci = positionAndVelocity.velocity;
+          velocityEci = positionAndVelocity.velocity; //var positionGd  = projector.unproject(positionEci.x, positionEci.y, positionEci.z)
+
       obj.table.push({
+        i: i,
         positionEci: positionEci,
         velocityEci: velocityEci
       });
@@ -44,6 +47,29 @@ module.exports = {
       }
     });
     console.log("Finished writing to position_and_velocity_cache.json");
+    json = JSON.parse(fs.readFileSync('position_and_velocity_cache.json'));
+    var obj = {
+      table: []
+    };
+
+    for (var _i = 0; _i < json.table.length; _i++) {
+      var _element = json.table[_i];
+      var positionGd = projector.unproject(_element.positionEci.x, _element.positionEci.y, _element.positionEci.z);
+      var velocityEci = _element.velocityEci;
+      obj.table.push({
+        i: _i,
+        positionGd: positionGd,
+        velocityEci: velocityEci
+      });
+    }
+
+    var pvJSON = JSON.stringify(obj);
+    fs.writeFile('position_and_velocity_geodetic_cache.json', pvJSON, function (err) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
   },
   getData: function getData() {
     console.log("Loading Data..."); //alert("Getting Data");

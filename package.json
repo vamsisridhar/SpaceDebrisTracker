@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "browserify-shim": "^3.8.14",
+    "ecef-projector": "^1.0.1",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
     "http-server": "^13.0.2",
