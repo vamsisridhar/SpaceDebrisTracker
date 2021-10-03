@@ -6,7 +6,9 @@
   "dependencies": {
     "browserify-shim": "^3.8.14",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "http-server": "^13.0.2",
+    "node": "^16.10.0",
     "satellite.js": "^4.1.3",
     "spacetrack": "^2.1.3"
   },

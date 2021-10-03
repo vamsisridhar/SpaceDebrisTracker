@@ -2,9 +2,40 @@ var spacetrack = require('spacetrack');
 var satellite = require('satellite.js');
 var util = require('util');
 var fs = require('fs');
+
 const { get } = require('https');
+const { table } = require('console');
 
 module.exports = {
+    getPositionAndVelocity: function(date){
+        
+        json = JSON.parse(fs.readFileSync('debrisData.json'));
+        console.log("Looping through JSON data");
+        var obj = {
+            table:[]
+        };
+        
+        for (let i = 0; i < json.table.length; i++) {
+            const element = json.table[i];
+            var satrec = satellite.twoline2satrec(element.tle[1], element.tle[2]);
+            var positionAndVelocity = satellite.propagate(satrec, date);
+            var gmst = satellite.gstime(date);
+            var positionEci = positionAndVelocity.position,
+                velocityEci = positionAndVelocity.velocity;
+
+            obj.table.push({positionEci,velocityEci});
+        }
+        console.log(obj.table.length);
+        var pvJSON = JSON.stringify(obj);
+        fs.writeFile('position_and_velocity_cache.json', pvJSON, err => {
+            if (err) {
+            console.error(err)
+            return
+            }}
+        );
+        console.log("Finished writing to position_and_velocity_cache.json");
+
+    },
     getData: function (){
         console.log("Loading Data...");
         //alert("Getting Data");
@@ -32,13 +63,6 @@ module.exports = {
             console.log("Calculating ECI Coords");
             for (let i = 0; i < result.length; i++) {
                 const element = result[i];
-                var satrec = satellite.twoline2satrec(element.tle[1], element.tle[2]);
-                var positionAndVelocity = satellite.propagate(satrec, new Date());
-                var positionEci = positionAndVelocity.position,
-                    velocityEci = positionAndVelocity.velocity;
-
-                element.position = positionEci;
-                element.velocity = velocityEci;
 
                 obj.table.push(element);
                 
@@ -53,8 +77,9 @@ module.exports = {
                 }}
             );
             console.log("Finished Upload");
-        });
+    });
+    }
+
     
-}
 }
 

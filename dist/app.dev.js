@@ -28,6 +28,16 @@ app.get('/index.html', function (req, res) {
 app.get('/debrisData.json', function (req, res) {
   res.sendFile(__dirname + '/debrisData.json');
 });
+app.get('/position_and_velocity_cache.json', function (req, res) {
+  res.sendFile(__dirname + '/position_and_velocity_cache.json');
+});
+app.get('/custom.css', function (req, res) {
+  res.sendFile(__dirname + '/custom.css');
+});
+app.post('/', function (req, res) {
+  data_retriever.getPositionAndVelocity(new Date());
+  res.send('message!');
+});
 var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
   var port = server.address().port;
