@@ -12,7 +12,7 @@ fetch("position_and_velocity_cache.json").then(function (results) {
   return results.json();
 }).then(function (json) {
   if (JSON.stringify(json) != '') {
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < json.table.length; i++) {
       var element = json.table[i];
       var height = Math.pow(element.positionEci.x * element.positionEci.x + element.positionEci.y * element.positionEci.y + element.positionEci.z * element.positionEci.z, 0.5);
       var longitude = Math.atan2(element.positionEci.y, element.positionEci.x) * (180 / Math.PI);
