@@ -42,6 +42,9 @@ app.get('/globe.html', function (req, res) {
     data_retriever.getData();
     res.sendFile(__dirname+'/globe.html') 
 });
+app.get('/awareness.html', function (req, res) {
+    res.sendFile(__dirname+'/awareness.html') 
+});
 app.get('/globestyles.css', function (req, res) {
     res.sendFile(__dirname+'/globestyles.css') 
 });
