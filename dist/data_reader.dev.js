@@ -11,19 +11,9 @@ fetch("debrisData.json").then(results => results.json()).then(
     }
 );
 */
-var calculatingSPG4;
-$('.SPG4').on('click', function () {
-  if (!calculatingSPG4) {
-    alert("Starting SPG4...");
-    calculatingSPG4 = window.setInterval(function () {
-      $.ajax({
-        type: 'POST',
-        url: '/'
-      });
-    }, 5000);
-  } else {
-    alert("Stopping SPG4");
-    clearInterval(calculatingSPG4);
-    calculatingSPG4 = null;
-  }
-});
+calculatingSPG4 = window.setInterval(function () {
+  $.ajax({
+    type: 'POST',
+    url: '/'
+  });
+}, 5000);

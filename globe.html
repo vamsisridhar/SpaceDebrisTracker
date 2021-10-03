@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceTrash</title>
+    <link rel="stylesheet" href="globestyles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <!-- Bootstrap 4.0 CSS compiled and minified -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome icons (see: https://fontawesome.com/icons?d=gallery) -->
+    <link href="custom.css" rel="stylesheet">
+</head>
+<body style="background-color: black;">
+    <!--Navigation bar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html#home" id="navbar__logo">SPACE TRASH</a>
+            <div class="navbar__toggle" id="mobile-menu"><!--3lines on mobile menu-->
+                <spam class="bar"></spam>
+                <spam class="bar"></spam>
+                <spam class="bar"></spam>
+
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="index.html#home" class="navbar__links" id="home-page">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="index.html#about" class="navbar__links" id="about-page">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="index.html#data" class="navbar__links" id="data-page">Data</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#globe.html" class="button" id="signup">Visualisation</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!--Globe section-->
+    <div class='globe' id='globe'>
+        <div class='globe__container'>
+            <h1 class="globe__heading">Our <span>Visualisation </span></h1>
+                <!-- Use container-fluid for 100% width and set padding to 0 -->
+            <canvas id="globe_canvas">
+            Browser does not support HTML5
+            </canvas>
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+            <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
+            <script src="worldwind.js" type="text/javascript"></script>
+            <script src="data_reader.js" type="text/javascript"></script>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,33 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-        <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>WorldWindJS Example</title>
-
-    <!-- Bootstrap 4.0 CSS compiled and minified -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Font Awesome icons (see: https://fontawesome.com/icons?d=gallery) -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link href="custom.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceTrash</title>
+    <link rel="stylesheet" href="styles_pro.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
-
 <body>
-    <!-- Use container-fluid for 100% width and set padding to 0 -->
-    <canvas id="globe">
-    Browser does not support HTML5
-    </canvas>
+    <!--Navigation bar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">SPACE TRASH</a>
+            <div class="navbar__toggle" id="mobile-menu"><!--3lines on mobile menu-->
+                <spam class="bar"></spam>
+                <spam class="bar"></spam>
+                <spam class="bar"></spam>
 
-<h1>HELLO THERE</h1>
-<button class="SPG4">CLICK ME!!</button>
-<p id="p1">Hello World!</p>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#data" class="navbar__links" id="data-page">Data</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="globe.html" class="button" id="signup">Visualisation</a>
+                </li>
+            </ul>
+        </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
-<script src="worldwind.js" type="text/javascript"></script>
-<script src="data_reader.js" type="text/javascript"></script>
+    </nav>
+    <!--Hero section-->
+    <div class='hero' id='home'>
+        <div class='hero__container'>
+            <h1 class="hero__heading">We are surrounded by<span> rubbish</span>.</h1>
+            <p class="hero__description">Can't imagine it?</p>
+            <button class='main__btn'><a href='globe.html'>See the litter blanket</a></button>
 
+        </div>
+    </div>
+    <!--About Section-->
+    <div class="main" id="about">
+        <div class="main__container">
+            <div class='main__img--container'>
+                <div class='main__img--card'>
+                    <i class="fas fa-user-astronaut">
+                    </i>
+                    <p>Andreea Hedes, Vamsi Sridharbabu, Herman Wong and Ari Alonso Bizzi</p>
+                </div>
+            </div>
+            <div class='main__content'>
+                <h1>Meet the team</h1>
+                <h2>A group of Imperial College Physics Students</h2>
+                <p> We believe that if we want to go far with satellites and space mission, we should take sustainability into account. The first step is to bring the litter to the masses.</p>
+                <button class='main__btn'><a href='globe.html'>Visualise the Space Trash</a></button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Tools and data Section -->
+    <div class='data' id ='data'>
+        <h1>What tools and data do we use?</h1>
+        <div class='data__wrapper'>
+            <div class='data__card'>
+                <h2>SpaceTrack </h2>
+                <p>We sorted through this dataset to extract the relevant debris information.</p>
+                
+            </div>
+            <div class='data__card'>
+                <h2>Satellite GS </h2>
+                <p>We used this to convert from the TELE format to position and velocity.</p>
+                
+            </div>
+            <div class='data__card'>
+                <h2>Worldwind </h2>
+                <p>To create the 3D globe.</p>
+            
+            </div>
+            <div class='data__card'>
+                <h2>Putting it all together </h2>
+                <p>To bring you this website.</p>
+
+            </div>
+        </div>
+    </div>
+    <script src='web_js.js'></script>
 </body>
-
+</html>

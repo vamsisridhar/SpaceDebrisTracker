@@ -38,6 +38,22 @@ app.get('/position_and_velocity_geodetic_cache.json', function (req, res) {
 app.get('/custom.css', function (req, res) {
     res.sendFile(__dirname+'/custom.css') 
 });
+app.get('/globe.html', function (req, res) {
+    data_retriever.getData();
+    res.sendFile(__dirname+'/globe.html') 
+});
+app.get('/globestyles.css', function (req, res) {
+    res.sendFile(__dirname+'/globestyles.css') 
+});
+app.get('/styles_pro.css', function (req, res) {
+    res.sendFile(__dirname+'/styles_pro.css') 
+});
+app.get('/styles.css', function (req, res) {
+    res.sendFile(__dirname+'/styles.css') 
+});
+app.get('/web_js.js', function (req, res) {
+    res.sendFile(__dirname+'/web_js.js') 
+});
 
 app.post('/', function(req, res){
     data_retriever.getPositionAndVelocity(new Date());

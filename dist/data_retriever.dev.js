@@ -29,7 +29,7 @@ module.exports = {
       var satrec = satellite.twoline2satrec(element.tle[1], element.tle[2]);
       var positionAndVelocity = satellite.propagate(satrec, date);
       var positionEci = positionAndVelocity.position,
-          velocityEci = positionAndVelocity.velocity; //var positionGd  = projector.unproject(positionEci.x, positionEci.y, positionEci.z)
+          velocityEci = positionAndVelocity.velocity; //var positionGd  = projector.unproject(positionEci)
 
       obj.table.push({
         i: i,
@@ -47,29 +47,6 @@ module.exports = {
       }
     });
     console.log("Finished writing to position_and_velocity_cache.json");
-    json = JSON.parse(fs.readFileSync('position_and_velocity_cache.json'));
-    var obj = {
-      table: []
-    };
-
-    for (var _i = 0; _i < json.table.length; _i++) {
-      var _element = json.table[_i];
-      var positionGd = projector.unproject(_element.positionEci.x, _element.positionEci.y, _element.positionEci.z);
-      var velocityEci = _element.velocityEci;
-      obj.table.push({
-        i: _i,
-        positionGd: positionGd,
-        velocityEci: velocityEci
-      });
-    }
-
-    var pvJSON = JSON.stringify(obj);
-    fs.writeFile('position_and_velocity_geodetic_cache.json', pvJSON, function (err) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
   },
   getData: function getData() {
     console.log("Loading Data..."); //alert("Getting Data");
